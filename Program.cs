@@ -21,11 +21,11 @@ namespace Home_Wokr_11._1
 
             Console.WriteLine($"Кількість літер у слові: {word.Length}");
             Console.WriteLine($"Кількість можливих невірних спроб: {word.Length}\n");
-            bool[] wordGuessed = new bool[word.Length];
+            bool[] wordGuessed = new bool[word.Length]; //Масив для відслідковування вгаданих літер
             bool guessed = false;
 
 
-            while (numberOfAttempts > 0 && !guessed)
+            while (numberOfAttempts > 0 && !guessed) // 1  - коли спроб залишиться 0 або guessed = true 
             {
                 Console.Write("Введіть літеру:");
                 char input;
@@ -38,10 +38,10 @@ namespace Home_Wokr_11._1
 
 
                 bool found = false;
-                string position = "";
+                string position = ""; // Змінна для зберігання позиції літери 
                 for (int i = 0; i < word.Length; i++)
                 {
-                    if (char.ToLower(word[i]) == char.ToLower(input))
+                    if (char.ToLower(word[i]) == char.ToLower(input)) // Порівняння за ідексами слова і що вів input 
                     {
                         wordGuessed[i] = true;
                         found = true;
@@ -55,7 +55,7 @@ namespace Home_Wokr_11._1
                 }
                 else
                 {
-                    numberOfAttempts--;
+                    numberOfAttempts--;   // віднімаємо спроби
                     Console.WriteLine($"Такої літери немає! Залишилось спроб: {numberOfAttempts}");
                     if (numberOfAttempts == 0)
                     {
